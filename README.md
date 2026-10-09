@@ -13,7 +13,7 @@ The system integrates six prediction sources:
 5. FootballSuperTips
 6. Prematips
 
-Each source has a dedicated Python module responsible for collecting its available prediction information. A shared helper module, `func.py`, provides reusable functionality for common operations, while `READ_CSV.py` supports reading and processing the resulting datasets.
+Each source has a dedicated Python module responsible for collecting its available prediction information. A shared helper module, `func.py`, provides reusable functionality for common operations, while `Football_Analysis.py` supports reading and processing the resulting datasets.
 
 The goal is to make football prediction information from different platforms easier to collect, organize, compare, and analyze without manually visiting each website and transferring predictions into spreadsheets.
 
@@ -155,7 +155,7 @@ AI-Football-Prediction-Aggregator/
 ├── PY FILES/
 │   ├── func.py
 │   ├── prematips.py
-│   ├── READ_CSV.py
+│   ├── Football_Analysis.py
 │   ├── statarea.py
 │   ├── accumulator.py
 │   ├── betclan.py
@@ -179,7 +179,7 @@ The `CSV FILES` directory represents the intended location for generated dataset
 | ---------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `func.py`              | Shared utilities for requests, CSV saving, duplicate removal, date handling, directory creation, and sorting |
 | `prematips.py`         | Collects prediction information from Prematips                                                               |
-| `READ_CSV.py`          | Reads and processes collected CSV datasets                                                                   |
+| `Football_Analysis.py`          | Reads and processes collected CSV datasets                                                                   |
 | `statarea.py`          | Collects prediction information from Statarea                                                                |
 | `accumulator.py`       | Handles prediction collection from Accumulator Generator                                                     |
 | `betclan.py`           | Handles prediction collection from BetClan                                                                   |
@@ -249,10 +249,10 @@ A typical workflow is:
 4. **Normalize the record.** The scraper organizes the extracted information into a structured format.
 5. **Save the data.** Shared helper functions write records into CSV files.
 6. **Clean the dataset.** Duplicate removal and sorting utilities can be applied where appropriate.
-7. **Read the collected data.** `READ_CSV.py` provides the module for reading or processing the generated CSV datasets.
+7. **Read the collected data.** `Football_Analysis.py` provides the module for reading or processing the generated CSV datasets.
 8. **Compare sources.** The resulting datasets can be aligned by match and market for additional analysis.
 
-The exact execution order and automation behavior depend on how the individual scripts and `READ_CSV.py` are implemented.
+The exact execution order and automation behavior depend on how the individual scripts and `Football_Analysis.py` are implemented.
 
 ---
 
@@ -331,10 +331,10 @@ These commands assume the remaining modules also execute their collection routin
 ### Read collected CSV files
 
 ```bash
-python "PY FILES/READ_CSV.py"
+python "PY FILES/Football_Analysis.py"
 ```
 
-The actual behavior depends on the implementation of `READ_CSV.py`.
+The actual behavior depends on the implementation of `Football_Analysis.py`.
 
 **Important:** Running scripts individually may be more reliable during development because it makes errors easier to isolate. Check the source-specific output paths before running the full collection workflow.
 
